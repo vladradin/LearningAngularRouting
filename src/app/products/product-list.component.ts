@@ -1,7 +1,8 @@
-import { Component, OnInit }  from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from './product';
 import { ProductService } from './product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     templateUrl: './app/products/product-list.component.html',
@@ -17,7 +18,7 @@ export class ProductListComponent implements OnInit {
 
     products: IProduct[];
 
-    constructor(private productService: ProductService) { }
+    constructor(private productService: ProductService, private route: ActivatedRoute) { }
 
     toggleImage(): void {
         this.showImage = !this.showImage;
@@ -25,7 +26,8 @@ export class ProductListComponent implements OnInit {
 
     ngOnInit(): void {
         this.productService.getProducts()
-                .subscribe(products => this.products = products,
-                           error => this.errorMessage = <any>error);
+            .subscribe(products => this.products = products,
+                error => this.errorMessage = <any>error);
+        this.route.queryParams.subscribe(param => { this.listFilter = param['byFilter'] });
     }
 }

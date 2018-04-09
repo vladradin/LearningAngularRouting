@@ -13,10 +13,11 @@ var message_service_1 = require("../messages/message.service");
 var product_service_1 = require("./product.service");
 var router_1 = require("@angular/router");
 var ProductEditComponent = (function () {
-    function ProductEditComponent(productService, messageService, route) {
+    function ProductEditComponent(productService, messageService, route, router) {
         this.productService = productService;
         this.messageService = messageService;
         this.route = route;
+        this.router = router;
         this.pageTitle = 'Product Edit';
     }
     ProductEditComponent.prototype.ngOnInit = function () {
@@ -64,6 +65,7 @@ var ProductEditComponent = (function () {
         if (message) {
             this.messageService.addMessage(message);
         }
+        this.router.navigate(['/products']);
         // Navigate back to the product list
     };
     return ProductEditComponent;
@@ -75,7 +77,8 @@ ProductEditComponent = __decorate([
     }),
     __metadata("design:paramtypes", [product_service_1.ProductService,
         message_service_1.MessageService,
-        router_1.ActivatedRoute])
+        router_1.ActivatedRoute,
+        router_1.Router])
 ], ProductEditComponent);
 exports.ProductEditComponent = ProductEditComponent;
 //# sourceMappingURL=product-edit.component.js.map

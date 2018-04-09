@@ -5,11 +5,11 @@ import { MessageService } from '../messages/message.service';
 import { IProduct } from './product';
 import { ProductService } from './product.service';
 
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
     templateUrl: './app/products/product-edit.component.html',
-    styleUrls: ['./app/products/product-edit.component.css']
+    styleUrls: ['./app/products/product-edit.component.css']    
 })
 export class ProductEditComponent implements OnInit {
 
@@ -20,7 +20,8 @@ export class ProductEditComponent implements OnInit {
 
     constructor(private productService: ProductService,
         private messageService: MessageService,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private router: Router) {
     }
 
     ngOnInit(): void {
@@ -76,6 +77,8 @@ export class ProductEditComponent implements OnInit {
         if (message) {
             this.messageService.addMessage(message);
         }
+
+        this.router.navigate(['/products']);
 
         // Navigate back to the product list
     }
