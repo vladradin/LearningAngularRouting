@@ -42,7 +42,7 @@
                                 [style.margin.px]="imageMargin">
                         </td>
                         <td>
-                            <a [routerLink]="['products', product.id]">
+                            <a [routerLink]="['/products', product.id]">
                                 {{product.productName}}
                             </a>
                         </td>
@@ -54,7 +54,7 @@
                             </ai-star>
                         </td>
                         <td>
-                            <a [routerLink]="['products', product.id ,'edit']" class="btn btn-primary">
+                            <a [routerLink]="['/products',product.id ,'edit']" class="btn btn-primary">
                                 Edit
                             </a>
                         </td>
