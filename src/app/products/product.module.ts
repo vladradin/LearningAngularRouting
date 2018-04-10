@@ -10,6 +10,7 @@ import { ProductService } from './product.service';
 import { SharedModule } from '../shared/shared.module';
 
 import { ProductRoutingModule } from './product-routing.module';
+import { ProductResolver } from './product-resolve.service';
 
 
 
@@ -25,7 +26,8 @@ import { ProductRoutingModule } from './product-routing.module';
     ProductFilterPipe
   ],
   providers: [
-    ProductService
+    ProductService,
+    ProductResolver
   ]
 })
 export class ProductModule { }

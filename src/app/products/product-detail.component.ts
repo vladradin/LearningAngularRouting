@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
 
-    GetProductCallback: () => (id: number) => void;
+    
     pageTitle: string = 'Product Detail';
     product: IProduct;
     errorMessage: string;
@@ -17,22 +17,12 @@ export class ProductDetailComponent implements OnInit {
     constructor(private productService: ProductService,
         private route: ActivatedRoute) { }
 
-    ngOnInit(): void {
-        this.GetProductCallback = () => this.getProduct;
-        let id = + this.route.params.subscribe(params => this.ParametersChanged(params));
+    ngOnInit(): void {        
+        let id = + this.route.data.subscribe(params => this.ParametersChanged(params));
     }
 
     ParametersChanged(params: Params): void {
-        let id = params['id'];
-        var firstName = params['first'];
-        var lastName = params['last'];
-        var age = params['age'];
-
-        console.log(firstName);
-        console.log(lastName);
-        console.log(age);
-        
-        this.getProduct(id);
+        this.product = params['product'];
     }
 
 

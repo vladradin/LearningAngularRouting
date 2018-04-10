@@ -19,18 +19,10 @@ var ProductDetailComponent = (function () {
     }
     ProductDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.GetProductCallback = function () { return _this.getProduct; };
-        var id = +this.route.params.subscribe(function (params) { return _this.ParametersChanged(params); });
+        var id = +this.route.data.subscribe(function (params) { return _this.ParametersChanged(params); });
     };
     ProductDetailComponent.prototype.ParametersChanged = function (params) {
-        var id = params['id'];
-        var firstName = params['first'];
-        var lastName = params['last'];
-        var age = params['age'];
-        console.log(firstName);
-        console.log(lastName);
-        console.log(age);
-        this.getProduct(id);
+        this.product = params['product'];
     };
     ProductDetailComponent.prototype.getProduct = function (id) {
         var _this = this;

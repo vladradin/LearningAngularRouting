@@ -13,6 +13,7 @@ var product_filter_pipe_1 = require("./product-filter.pipe");
 var product_service_1 = require("./product.service");
 var shared_module_1 = require("../shared/shared.module");
 var product_routing_module_1 = require("./product-routing.module");
+var product_resolve_service_1 = require("./product-resolve.service");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -31,7 +32,8 @@ ProductModule = __decorate([
             product_filter_pipe_1.ProductFilterPipe
         ],
         providers: [
-            product_service_1.ProductService
+            product_service_1.ProductService,
+            product_resolve_service_1.ProductResolver
         ]
     })
 ], ProductModule);
